@@ -67,7 +67,7 @@ public class GameTest {
 
 
         int actual = game.round("Boris", "Sasha");
-        int expected = -1;
+        int expected = 2;
         Assertions.assertEquals(expected, actual);
     }
 

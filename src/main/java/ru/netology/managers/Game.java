@@ -41,7 +41,7 @@ public class Game {
             return 1;
         }
         if (strength1 < strength2) {
-            return -1;
+            return 2;
         }
 
         return 0;
