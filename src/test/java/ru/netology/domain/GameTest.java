@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 
 
@@ -14,10 +15,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class GameTest {
 
-    Collection<Player> playersList = new ArrayList<>();
-
 
     private Game game = new Game();
+    Collection<Player> playersList = new ArrayList<>();
     Player player1 = new Player(1, "Pavel", 7);
     Player player2 = new Player(2, "Kolya", 5);
     Player player3 = new Player(3, "Valentin", 7);
@@ -28,27 +28,27 @@ public class GameTest {
 
     @Test
     public void findByNameTest() {
-        playersList.add(player1);
-        playersList.add(player2);
-        playersList.add(player3);
-        playersList.add(player4);
-        playersList.add(player5);
-        playersList.add(player6);
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+        game.register(player4);
+        game.register(player5);
+        game.register(player6);
 
 
         int actual = game.findByName("Misha");
-        int expected = 5;
+        int expected = 4;
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void roundWinFirstTest() {
-        playersList.add(player1);
-        playersList.add(player2);
-        playersList.add(player3);
-        playersList.add(player4);
-        playersList.add(player5);
-        playersList.add(player6);
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+        game.register(player4);
+        game.register(player5);
+        game.register(player6);
 
 
         int actual = game.round("Boris", "Pavel");
@@ -58,12 +58,12 @@ public class GameTest {
 
     @Test
     public void roundWinSecondTest() {
-        playersList.add(player1);
-        playersList.add(player2);
-        playersList.add(player3);
-        playersList.add(player4);
-        playersList.add(player5);
-        playersList.add(player6);
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+        game.register(player4);
+        game.register(player5);
+        game.register(player6);
 
 
         int actual = game.round("Boris", "Sasha");
@@ -73,12 +73,12 @@ public class GameTest {
 
     @Test
     public void roundStrengthEqualsTest() {
-        playersList.add(player1);
-        playersList.add(player2);
-        playersList.add(player3);
-        playersList.add(player4);
-        playersList.add(player5);
-        playersList.add(player6);
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+        game.register(player4);
+        game.register(player5);
+        game.register(player6);
 
 
         int actual = game.round("Valentin", "Pavel");
@@ -88,12 +88,12 @@ public class GameTest {
 
     @Test
     public void roundFirstNotRegisteredExceptionTest() {
-        playersList.add(player1);
-        playersList.add(player2);
-        playersList.add(player3);
-        playersList.add(player4);
-        playersList.add(player5);
-        playersList.add(player6);
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+        game.register(player4);
+        game.register(player5);
+        game.register(player6);
 
 
         assertThrows(NotRegisteredException.class, () -> {
@@ -104,12 +104,12 @@ public class GameTest {
 
     @Test
     public void roundSecondNotRegisteredExceptionTest() {
-        playersList.add(player1);
-        playersList.add(player2);
-        playersList.add(player3);
-        playersList.add(player4);
-        playersList.add(player5);
-        playersList.add(player6);
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+        game.register(player4);
+        game.register(player5);
+        game.register(player6);
 
 
         assertThrows(NotRegisteredException.class, () -> {
@@ -120,12 +120,12 @@ public class GameTest {
 
     @Test
     public void roundBothNotRegisteredExceptionTest() {
-        playersList.add(player1);
-        playersList.add(player2);
-        playersList.add(player3);
-        playersList.add(player4);
-        playersList.add(player5);
-        playersList.add(player6);
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+        game.register(player4);
+        game.register(player5);
+        game.register(player6);
 
 
         assertThrows(NotRegisteredException.class, () -> {

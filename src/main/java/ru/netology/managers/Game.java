@@ -8,15 +8,18 @@ import java.util.List;
 
 public class Game {
 
-    protected List<Player> players = new ArrayList<>();
+
+    protected List<Player> playersList = new ArrayList<>();
+
 
     public void register(Player player) {
-        players.add(player);
+
+        playersList.add(player);
     }
 
     public int findByName(String name) {
-        for (int i = 0; i < players.size(); i++) {
-            Player player = players.get(i);
+        for (int i = 0; i < playersList.size(); i++) {
+            Player player = playersList.get(i);
             if (player.getName().equals(name)) {
                 return i;
             }
@@ -34,8 +37,8 @@ public class Game {
         if (player2 == -1) {
             throw new NotRegisteredException("Данный игрок " + name2 + " не зарегистрирован в системе");
         }
-        int strength1 = players.get(player1).getStrength();
-        int strength2 = players.get(player2).getStrength();
+        int strength1 = playersList.get(player1).getStrength();
+        int strength2 = playersList.get(player2).getStrength();
 
         if (strength1 > strength2) {
             return 1;
